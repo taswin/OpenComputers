@@ -1,7 +1,6 @@
 local event = require "event"
 
 local char_t = string.byte("t")
-local running = true
 
 function unknownEvent()
   --Nothing
@@ -15,8 +14,13 @@ function myEventHandlers.key_up(adress, char, code, playerName)
   end
 end
 
-function myEventHandlers.modem_message(reciver, sender, rPort, distance, message)
-  display(message)
+function myEventHandlers.modem_message(reciver, sender, rPort, distance, msg)
+  local display = serialization.unserialize(msg)
+  
+  for x = 1, #display do
+    term.setCursor(1, i)
+    term.write(display[i])
+  end
 end
 
 function handleEvent(eventID, ...)

@@ -1,6 +1,11 @@
 local event = require "event"
+local component = require("component")
+local modem = component.modem
+local tunnel = component.tunnel
 
-local char_t = string.byte("t")
+local args = {...}
+local port = args[1]
+modem.open(port)
 
 function unknownEvent()
   --Nothing
@@ -9,7 +14,7 @@ end
 local myEventHandlers = setmetatable({}, { __index = function() return unknownEvent end })
 
 function myEventHandlers.key_up(adress, char, code, playerName)
-  if (char == char_t) then
+  if (char == string.byte("t")) then
     running = false
   end
 end

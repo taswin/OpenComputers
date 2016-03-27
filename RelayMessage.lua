@@ -1,9 +1,12 @@
-local component = require("component")
-local event = require("event")
-local tunnel = component.tunnel
-local modem = component.modem
+local component=require"component"
+local event=require"event"
 
-while true do
-  local _, _, port, _, ... = event.pull("modem_message")
-  modem.broadcast(port, ...)
+local link=component.tunnel
+local modem=component.modem
+local port=100
+
+local function forward(event, rec_addr, from, port, distance, message)
+  modem.broadcast(port, message)
 end
+
+event.listen("modem_message",forward)

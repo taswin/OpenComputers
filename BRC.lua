@@ -8,7 +8,10 @@ local modem = component.modem
 local tunnel = component.tunnel
 
 local running = true
-local port = 2925
+
+local args = {...}
+local port = args[1]
+modem.open(port)
 
 function unknownEvent()
   --Nothing
@@ -27,9 +30,6 @@ function handleEvent(eventID, ...)
     myEventHandlers[eventID](...)
   end
 end
-
-event.listen("key_up", handleEvent)
-event.listen("modem_message", handleEvent)
 
 function transmit(msg)
   if modem then
@@ -70,8 +70,8 @@ function reactorStats()
   return powerPercent
 end
 
+event.listen("key_up", handleEvent)
 
-local running = true
 while running do  
   if reactor then
     percent = getReactorStats()

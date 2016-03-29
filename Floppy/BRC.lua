@@ -1,6 +1,5 @@
 local component = require("component")
 local event = require("event")
-local term = require("term")
 local reactor = component.br_reactor
 modem = component.modem
 tunnel = component.tunnel

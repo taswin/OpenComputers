@@ -1,5 +1,6 @@
 local event = require "event"
 local component = require("component")
+term = require("term")
 local modem = component.modem
 local tunnel = component.tunnel
 

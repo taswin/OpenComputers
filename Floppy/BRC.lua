@@ -2,17 +2,8 @@ local component = require("component")
 local event = require("event")
 local term = require("term")
 local reactor = component.br_reactor
-local gpu = component.gpu
-
-local modem
-if component.isAvailable("modem") then
-  modem = component.modem
-end
-
-local tunnel
-if component.isAvailable("tunnel") then
-  tunnel = component.tunnel
-end
+modem = component.modem
+tunnel = component.tunnel
 
 local running = true
 

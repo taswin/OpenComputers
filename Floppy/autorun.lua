@@ -1,19 +1,23 @@
 local component = require("component")
 
+local reactor
 if component.isAvailable("br_reactor") then
-  local reactor = component.br_reactor
+  reactor = component.br_reactor
 end
 
+local modem
 if component.isAvailable("modem") then
-  local modem = component.modem
+  modem = component.modem
 end
 
+local tunnel
 if component.isAvailable("tunnel") then
-  local tunnel = component.tunnel
+  tunnel = component.tunnel
 end
 
+local term
 if component.isAvailable("term") then
-  local term = component.term
+  term = component.term
 end
 
 local args = {...}

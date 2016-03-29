@@ -1,4 +1,5 @@
 local component = require("component")
+term = require("term")
 
 local reactor
 if component.isAvailable("br_reactor") then
@@ -13,11 +14,6 @@ end
 local tunnel
 if component.isAvailable("tunnel") then
   tunnel = component.tunnel
-end
-
-local term
-if component.isAvailable("term") then
-  term = component.term
 end
 
 local args = {...}

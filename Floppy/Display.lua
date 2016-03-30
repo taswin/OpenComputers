@@ -1,6 +1,7 @@
 local event = require "event"
 local component = require("component")
-term = require("term")
+local term = require("term")
+local serialization = require("serialization")
 local modem = component.modem
 local tunnel = component.tunnel
 

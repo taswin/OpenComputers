@@ -1,8 +1,9 @@
 local component = require("component")
 local event = require("event")
+local serialization = require("serialization")
 local reactor = component.br_reactor
-modem = component.modem
-tunnel = component.tunnel
+local modem = component.modem
+local tunnel = component.tunnel
 
 local running = true
 

@@ -10,8 +10,8 @@ function terminate()
 end
 
 function getLocalState()
-  if(sg.isActive) then
-    if(sg.isDialing) then
+  if(sg.isActive()) then
+    if(sg.isDialing()) then
       return "dialing"
    else
      return "connected"

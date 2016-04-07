@@ -1,4 +1,5 @@
 local component = require("component")
+local term = require("term")
 local sg = component.stargate
 
 function dial(address)
@@ -42,12 +43,20 @@ end
 
 local eventHandlers = setmetatable({}, { __index = function() return unknownEvent end })
 
+local incommingGlyphs = ""
 function eventHandlers.sgIncommung(glyph)
-  --
+  
+  if ((incommingGlyphs.length % 9) == 0)
+    term.setCursor(0, 0)
+    incommingGlyphs = glyph
+  else
+    incommingGlyphs = incommingGlyphs .. glyph
+  end
+  print(incommingGlyphs)
 end
 
 function eventHandlers.sgOutgoing(address)
-  --
+  print(address)
 end
 
 function handleEvent(eventID, ...)
